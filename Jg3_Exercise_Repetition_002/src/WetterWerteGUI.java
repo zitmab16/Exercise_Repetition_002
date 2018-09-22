@@ -1,5 +1,7 @@
 
+import java.io.File;
 import java.time.LocalDateTime;
+import javax.swing.JFileChooser;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -41,6 +43,11 @@ public class WetterWerteGUI extends javax.swing.JFrame {
         lbEingabe = new javax.swing.JLabel();
         lbTempChange = new javax.swing.JLabel();
         lbLFChange = new javax.swing.JLabel();
+        mbMenu = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        miSave = new javax.swing.JMenuItem();
+        miLoad = new javax.swing.JMenuItem();
+        miExit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,6 +106,36 @@ public class WetterWerteGUI extends javax.swing.JFrame {
 
         lbLFChange.setText(jsLuftfeuchtigkeit.getValue()+"%");
 
+        jMenu1.setText("Datei");
+
+        miSave.setText("Speichern");
+        miSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miSaveActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miSave);
+
+        miLoad.setText("Laden");
+        miLoad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miLoadActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miLoad);
+
+        miExit.setText("Beenden");
+        miExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miExitActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miExit);
+
+        mbMenu.add(jMenu1);
+
+        setJMenuBar(mbMenu);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -130,31 +167,31 @@ public class WetterWerteGUI extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbEingabe)
+                    .addComponent(lbAnzeige))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(19, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbAnzeige)
-                            .addComponent(lbEingabe))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbTemp, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbTempChange, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jsTemperatur, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbLF, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbLFChange, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbLFChange, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbLF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jsLuftfeuchtigkeit, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(12, 12, 12)
                         .addComponent(btAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         pack();
@@ -175,6 +212,30 @@ public class WetterWerteGUI extends javax.swing.JFrame {
         
         wm.add(new WetterWert(temp,luftfeuchtigkeit,ldt));
     }//GEN-LAST:event_btAddActionPerformed
+
+    private void miExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miExitActionPerformed
+      System.exit(0);
+    }//GEN-LAST:event_miExitActionPerformed
+
+    private void miLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLoadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_miLoadActionPerformed
+
+    private void miSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSaveActionPerformed
+        File f=null;
+       
+        File workingDirectory = new File(System.getProperty("user.dir"));
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(workingDirectory);
+        int res = chooser.showOpenDialog(null);
+        if (res == JFileChooser.APPROVE_OPTION) 
+            f = chooser.getSelectedFile();
+        try {
+            wm.save(f);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_miSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,6 +272,7 @@ public class WetterWerteGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdd;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jsLuftfeuchtigkeit;
     private javax.swing.JSlider jsTemperatur;
@@ -221,5 +283,9 @@ public class WetterWerteGUI extends javax.swing.JFrame {
     private javax.swing.JLabel lbTemp;
     private javax.swing.JLabel lbTempChange;
     private javax.swing.JList<String> liOutput;
+    private javax.swing.JMenuBar mbMenu;
+    private javax.swing.JMenuItem miExit;
+    private javax.swing.JMenuItem miLoad;
+    private javax.swing.JMenuItem miSave;
     // End of variables declaration//GEN-END:variables
 }
