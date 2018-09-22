@@ -1,3 +1,6 @@
+
+import java.time.LocalDateTime;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,12 +12,13 @@
  * @author vizug
  */
 public class WetterWerteGUI extends javax.swing.JFrame {
-
+    private WetterModell wm = new WetterModell();
     /**
      * Creates new form WetterWerteGUI
      */
     public WetterWerteGUI() {
         initComponents();
+        liOutput.setModel(wm);
     }
 
     /**
@@ -53,6 +57,11 @@ public class WetterWerteGUI extends javax.swing.JFrame {
         jsTemperatur.createStandardLabels(1);
         jsTemperatur.setPaintTicks(true);
         jsTemperatur.setPaintLabels(true);
+        jsTemperatur.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jsTemperaturStateChanged(evt);
+            }
+        });
 
         jsLuftfeuchtigkeit.setMajorTickSpacing(20);
 
@@ -67,18 +76,28 @@ public class WetterWerteGUI extends javax.swing.JFrame {
         jsLuftfeuchtigkeit.createStandardLabels(1);
         jsLuftfeuchtigkeit.setPaintTicks(true);
         jsLuftfeuchtigkeit.setPaintLabels(true);
+        jsLuftfeuchtigkeit.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jsLuftfeuchtigkeitStateChanged(evt);
+            }
+        });
 
         lbTemp.setText("Temperatur: ");
 
         lbLF.setText("Luftfeuchtigkeit:");
 
         btAdd.setText("Einfügen");
+        btAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAddActionPerformed(evt);
+            }
+        });
 
         lbEingabe.setText("Eingabe");
 
-        lbTempChange.setText(" ");
+        lbTempChange.setText(jsTemperatur.getValue()+"°");
 
-        lbLFChange.setText(" ");
+        lbLFChange.setText(jsLuftfeuchtigkeit.getValue()+"%");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,14 +144,14 @@ public class WetterWerteGUI extends javax.swing.JFrame {
                             .addComponent(lbTemp, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbTempChange, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jsTemperatur, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
+                        .addComponent(jsTemperatur, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbLF, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbLFChange, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jsLuftfeuchtigkeit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
+                        .addComponent(jsLuftfeuchtigkeit, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -140,6 +159,22 @@ public class WetterWerteGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jsTemperaturStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jsTemperaturStateChanged
+        lbTempChange.setText(jsTemperatur.getValue()+"°");
+    }//GEN-LAST:event_jsTemperaturStateChanged
+
+    private void jsLuftfeuchtigkeitStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jsLuftfeuchtigkeitStateChanged
+        lbLFChange.setText(jsLuftfeuchtigkeit.getValue()+"%");
+    }//GEN-LAST:event_jsLuftfeuchtigkeitStateChanged
+
+    private void btAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddActionPerformed
+        int temp=jsTemperatur.getValue();
+        int luftfeuchtigkeit=jsLuftfeuchtigkeit.getValue();
+        LocalDateTime ldt = LocalDateTime.now();
+        
+        wm.add(new WetterWert(temp,luftfeuchtigkeit,ldt));
+    }//GEN-LAST:event_btAddActionPerformed
 
     /**
      * @param args the command line arguments

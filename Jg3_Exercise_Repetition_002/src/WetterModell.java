@@ -24,5 +24,9 @@ public class WetterModell extends AbstractListModel{
     public Object getElementAt(int index) {
         return werte.get(index);
     }
+    public void add(WetterWert w){
+        werte.add(w);
+        fireIntervalAdded(this, 0, werte.size()-1);
+    }
     
 }

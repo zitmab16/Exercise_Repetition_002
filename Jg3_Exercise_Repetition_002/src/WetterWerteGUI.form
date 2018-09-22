@@ -75,15 +75,15 @@
                           <Component id="lbTempChange" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jsTemperatur" min="-2" pref="35" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="jsTemperatur" min="-2" pref="56" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lbLF" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                           <Component id="lbLFChange" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jsLuftfeuchtigkeit" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="jsLuftfeuchtigkeit" min="-2" pref="45" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="btAdd" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -136,12 +136,18 @@
           <Connection code="true" type="code"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jsTemperaturStateChanged"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jsTemperatur.setValue(10);&#xa;jsTemperatur.createStandardLabels(1);&#xa;jsTemperatur.setPaintTicks(true);&#xa;jsTemperatur.setPaintLabels(true);"/>
         <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="WetterWerteGUI_jSlider1"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JSlider" name="jsLuftfeuchtigkeit">
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jsLuftfeuchtigkeitStateChanged"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jsLuftfeuchtigkeit.setMajorTickSpacing(20);&#xa;&#xa;jsLuftfeuchtigkeit.setMaximum(100);&#xa;&#xa;jsLuftfeuchtigkeit.setMinimum(0);&#xa;&#xa;jsLuftfeuchtigkeit.setMinorTickSpacing(10);&#xa;&#xa;jsLuftfeuchtigkeit.setPaintLabels(true);&#xa;jsLuftfeuchtigkeit.setValue(10);&#xa;jsLuftfeuchtigkeit.createStandardLabels(1);&#xa;jsLuftfeuchtigkeit.setPaintTicks(true);&#xa;jsLuftfeuchtigkeit.setPaintLabels(true);"/>
       </AuxValues>
@@ -160,6 +166,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Einf&#xfc;gen"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAddActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbEingabe">
       <Properties>
@@ -168,12 +177,16 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lbTempChange">
       <Properties>
-        <Property name="text" type="java.lang.String" value=" "/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="jsTemperatur.getValue()+&quot;&#xb0;&quot;" type="code"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbLFChange">
       <Properties>
-        <Property name="text" type="java.lang.String" value=" "/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="jsLuftfeuchtigkeit.getValue()+&quot;%&quot;" type="code"/>
+        </Property>
       </Properties>
     </Component>
   </SubComponents>
