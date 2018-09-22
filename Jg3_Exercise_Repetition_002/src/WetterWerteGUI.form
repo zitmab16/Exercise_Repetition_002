@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jsTemperatur" pref="370" max="32767" attributes="0"/>
+                  <Component id="jsLuftfeuchtigkeit" max="32767" attributes="0"/>
+                  <Component id="btAdd" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lbEingabe" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lbLF" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lbLFChange" min="-2" pref="61" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lbTemp" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lbTempChange" min="-2" pref="75" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lbAnzeige" min="-2" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="297" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbAnzeige" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbEingabe" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="322" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbTemp" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="lbTempChange" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jsTemperatur" min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbLF" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="lbLFChange" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jsLuftfeuchtigkeit" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="btAdd" min="-2" pref="44" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JList" name="liOutput">
+          <Properties>
+            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="lbAnzeige">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Anzeige"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSlider" name="jsTemperatur">
+      <Properties>
+        <Property name="majorTickSpacing" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="10" type="code"/>
+        </Property>
+        <Property name="maximum" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="40" type="code"/>
+        </Property>
+        <Property name="minimum" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="-20" type="code"/>
+        </Property>
+        <Property name="minorTickSpacing" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="5" type="code"/>
+        </Property>
+        <Property name="paintLabels" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="true" type="code"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jsTemperatur.setValue(10);&#xa;jsTemperatur.createStandardLabels(1);&#xa;jsTemperatur.setPaintTicks(true);&#xa;jsTemperatur.setPaintLabels(true);"/>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="WetterWerteGUI_jSlider1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JSlider" name="jsLuftfeuchtigkeit">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jsLuftfeuchtigkeit.setMajorTickSpacing(20);&#xa;&#xa;jsLuftfeuchtigkeit.setMaximum(100);&#xa;&#xa;jsLuftfeuchtigkeit.setMinimum(0);&#xa;&#xa;jsLuftfeuchtigkeit.setMinorTickSpacing(10);&#xa;&#xa;jsLuftfeuchtigkeit.setPaintLabels(true);&#xa;jsLuftfeuchtigkeit.setValue(10);&#xa;jsLuftfeuchtigkeit.createStandardLabels(1);&#xa;jsLuftfeuchtigkeit.setPaintTicks(true);&#xa;jsLuftfeuchtigkeit.setPaintLabels(true);"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbTemp">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Temperatur: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbLF">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Luftfeuchtigkeit:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btAdd">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Einf&#xfc;gen"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbEingabe">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Eingabe"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbTempChange">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=" "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbLFChange">
+      <Properties>
+        <Property name="text" type="java.lang.String" value=" "/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
